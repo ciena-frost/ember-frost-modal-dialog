@@ -11,10 +11,10 @@
 
 # ember-frost-modal-dialog
 
- * [Installation](#Installation)
- * [API](#API)
- * [Examples](#Examples)
- * [Contributing](#Contributing)
+ * [Installation](#installation)
+ * [API](#api)
+ * [Examples](#examples)
+ * [Development](#development)
 
 ## Installation
 ```
@@ -25,13 +25,46 @@ ember install ember-frost-modal-dialog
 
 | Attribute | Type | Value | Description |
 | --------- | ---- | ----- | ----------- |
-| ` ` | ` ` | ` ` | Coming soon |
+| `dialogType` | `string` | `confirmation` | will display a confirmation dialog |
+| | | `information` | will display an information dialog |
+| | | `warning` | will display a warning dialog |
+| | | `error` | will display an error dialog |
+| `dialogTitle` | `string` | `<title>` | title for your dialog |
+| `dialogMessage` | `string` | `<message>` | string message content for your dialog |
+| `dialogConfirmAlias` | `string` | `<alias>` | string alias for the primary action button in a modal |
+| `messageTemplate` | `hbs` | `<custom template>` | optional template partial for the modal body |
+| `actionsTemplate` | `hbs` | `<custom template>` | optional template partial for the modal footer actions |
 
 ## Examples
 
-### Example
-```handlebars
-Coming soon
+### Controller
+```javascript
+actions: {
+  triggerConfirmationDialog () {
+    this.set('dialogType', 'confirmation')
+    this.set('dialogTitle', 'Confirmation')
+    this.set('dialogMessage', 'Confirmation message')
+    this.set('dialogConfirmAlias', 'Confirm')
+    this.set('isDialogVisible', true)
+  }
+}
+```
+
+### Router
+```
+this.modal("frost-modal-dialog", {
+    withParams: "isDialogVisible",
+    dialogClass: "frost-modal-dialog",
+    otherParams: [
+      {dialogType: "type"},
+      {dialogTitle: "title"},
+      {dialogMessage: "message"},
+      {dialogConfirmAlias: "confirmAlias"}
+    ],
+    actions: {
+      confirm: "dialogConfirmed"
+    }
+  })
 ```
 
 ## Development

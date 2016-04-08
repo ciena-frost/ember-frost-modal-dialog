@@ -1,2 +1,70 @@
-frost-modal-dialog testbed
-{{frost-modal-dialog}}
+{{liquid-modal}}
+<div class="dummy-body">
+  <div class="section">
+    <div class="example">
+      <div class='title'>
+        Confirmation Dialog
+      </div>
+      <div class="demo">
+        {{frost-button
+          priority="primary"
+          size="medium"
+          text='Confirmation'
+          onClick=(action "triggerConfirmationDialog")
+        }}
+      </div>
+      <div class='snippet'>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="example">
+      <div class='title'>
+        Information dialog
+      </div>
+      <div class="demo">
+        {{frost-button priority="primary"
+          size="medium"
+          text='Information'
+          onClick=(action "triggerInformationDialog")}}
+      </div>
+      <div class='snippet'>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="example">
+      <div class='title'>
+        Warning dialog
+      </div>
+      <div class="demo">
+        {{frost-button
+          priority="primary"
+          size="medium"
+          text='Warning'
+          onClick=(action "triggerWarningDialog")}}
+      </div>
+      <div class='snippet'>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="example">
+      <div class='title'>
+        Error dialog
+      </div>
+      <div class="demo">
+        {{frost-button
+          priority="primary"
+          size="medium"
+          text='Error'
+          onClick=(action "triggerErrorDialog")}}
+      </div>
+      <div class='snippet'>
+      </div>
+    </div>
+  </div>
+</div>

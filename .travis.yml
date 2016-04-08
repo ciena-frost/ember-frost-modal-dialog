@@ -5,7 +5,7 @@ node_js:
 - 'stable'
 branches:
   except:
-  - /^v[0-9\.]+/
+  - "/^v[0-9\.]+/"
 addons:
 apt:
   sources:
@@ -20,6 +20,10 @@ before_install:
 - npm config set spin false
 - npm install -g coveralls pr-bumper
 - pr-bumper check
+before_script:
+- "export DISPLAY=:99.0"
+- "sh -e /etc/init.d/xvfb start"
+- sleep 3 # give xvfb some time to start
 install:
 - npm install
 - bower install
@@ -53,6 +57,8 @@ deploy:
     secure: jaAofkpZIc7lbllm+MBIWr2ZqxrbTY0ggx8QpnNQ8t4xAFPzfH4McreJAl6/phcv4nHtKSZpzI3nW5vMyzR+yOTg1abOoBOaju6jgZzWts70Ym31w8R+Sxj98LS3pXZT/p9Ldz5zUazd6J2kuqFxfPbHPhBUsatDnnCyZ+702gxPFVixKXK8zL097R7/qojBxL4ZQva+LytltGj30xiQ1aiPNSZVtAJ6Ch1EjOGLIjeV1EMV9tHDda3JYYVcGtvTiU41EeGIR3w/tr1D6BI/8g8noONfXKdhpVlRNLWCoqyOdoC/lfadTXoT6j8QunfjwrkYcVaDUKl49SOsbdDbCPZDOENdfk3OMT+n9P7DUvBeJBcJTh8DhHKnEei2EWslQkhqFcbHeTKWOaEud/ziN8VMyJYR05xT8JBGPKwIP57+8TTlhxIrRjfHAdOtnb2Lx7S07r42pX3GqaMVcdWIGTJYaiy5homn1LFHocbpOpcmfnD6/XmfhuZIEVUMXny7w1feTxW3VsgfO+LAMUDs4ozwLoGqWCuEUUtMhzBG3Sg9kYUy+f8XvFrmyHPAOYrxxftU4WKesB1kCQpjtJxaFSI5OQPwkzM+zMojeCi0nO6ASqcWvnFqgsRPyQcwCldgsIjJrnQpjEhhUbqnDd7R3GUS0uG8GoX2gb/cPm6kSF0=
   on:
     branch: master
+    condition: "$EMBER_TRY_SCENARIO = 'default'"
+    node: 'stable'
     tags: false
 after_deploy:
 - .travis/publish-gh-pages.sh

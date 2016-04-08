@@ -1,2 +1,44 @@
-ember-frost-modal-dialog component
-{{yield}}
+<div class="overlay">
+  <div class="modal">
+    <div class="header">
+      {{title}}
+    </div>
+    <div class="body">
+      {{frost-icon
+        icon=dialogIcon
+        class='icon'}}
+      {{#if messageTemplate}}
+        {{partial messageTemplate}}
+      {{else}}
+        <span>{{message}}</span>
+      {{/if}}
+    </div>
+    <div class="footer">
+      {{#if actionsTemplate}}
+        {{partial actionsTemplate}}
+      {{else}}
+        {{#if confirmAlias}}
+          {{frost-button
+            autofocus=true
+            onClick=(action "cancel")
+            size="medium"
+            priority="tertiary"
+            text=cancelAlias
+          }}
+          {{frost-button
+            onClick=(action "confirm")
+            size="medium"
+            priority="primary"
+            text=confirmAlias}}
+        {{else}}
+          {{frost-button
+            autofocus=true
+            onClick=(action "cancel")
+            size="medium"
+            priority="primary"
+            text=cancelAlias}}
+        {{/if}}
+      {{/if}}
+    </div>
+  </div>
+</div>

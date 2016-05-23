@@ -6,12 +6,21 @@
         Confirmation Dialog
       </div>
       <div class="demo">
-        {{frost-button
-          priority="primary"
-          size="medium"
-          text='Confirmation'
-          onClick=(action "triggerConfirmationDialog")
-        }}
+        {{#frost-modal-dialog
+          title='confirmation'
+          type='confirmation'
+          confirmAlias='Confirm'}}
+          {{#block-slot slot 'openModalElement'}}
+            {{frost-button
+              priority="primary"
+              size="medium"
+              text='Confirmation dialog'
+            }}
+          {{/block-slot}}
+          {{#block-slot slot 'body'}}
+            Test
+          {{/block-slot}}
+        {{/frost-modal-dialog}}
       </div>
       <div class='snippet'>
       </div>
@@ -24,10 +33,10 @@
         Information dialog
       </div>
       <div class="demo">
-        {{frost-button priority="primary"
+        {{!-- {{frost-button priority="primary"
           size="medium"
           text='Information'
-          onClick=(action "triggerInformationDialog")}}
+          onClick=(action "triggerInformationDialog")}} --}}
       </div>
       <div class='snippet'>
       </div>
@@ -40,11 +49,11 @@
         Warning dialog
       </div>
       <div class="demo">
-        {{frost-button
+        {{!-- {{frost-button
           priority="primary"
           size="medium"
           text='Warning'
-          onClick=(action "triggerWarningDialog")}}
+          onClick=(action "triggerWarningDialog")}} --}}
       </div>
       <div class='snippet'>
       </div>
@@ -57,11 +66,11 @@
         Error dialog
       </div>
       <div class="demo">
-        {{frost-button
+        {{!-- {{frost-button
           priority="primary"
           size="medium"
           text='Error'
-          onClick=(action "triggerErrorDialog")}}
+          onClick=(action "triggerErrorDialog")}} --}}
       </div>
       <div class='snippet'>
       </div>

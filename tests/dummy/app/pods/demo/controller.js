@@ -10,13 +10,6 @@ export default Controller.extend({
   dialogConfirmAlias: null,
 
   actions: {
-    triggerConfirmationDialog () {
-      this.set('dialogType', 'confirmation')
-      this.set('dialogTitle', 'Confirmation')
-      this.set('dialogMessage', 'Confirmation message')
-      this.set('dialogConfirmAlias', 'Confirm')
-      this.set('isDialogVisible', true)
-    },
     triggerInformationDialog () {
       this.set('dialogType', 'information')
       this.set('dialogTitle', 'Information')

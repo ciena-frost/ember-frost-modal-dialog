@@ -1,60 +1,54 @@
 @import 'node_modules/ember-frost-core/addon/styles/frost-theme';
 
 .frost-modal-dialog {
-  .overlay {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    left: 0;
-    top: 50px;
-    height: 100%;
-    width: 100%;
-    background-color: rgba($frost-color-white, 0.8);
-  }
-
-  .modal {
+  &.ember-remodal.window {
     position: relative;
     width: 510px;
     box-shadow: 0px 0px 20px rgba($frost-color-grey-1, 0.5);
     background-color: rgba($frost-color-white, 1);
   }
 
-  .header {
-    margin-left: 40px;
-    padding: 40px 40px 0px 0px;
-    color: $frost-color-grey-2;
-    font-size: $frost-font-l;
-  }
+  .ember-remodal {
+    &.yielded {
+      &.content {
+        display: flex;
+        flex-direction: column;
 
-  .body {
-    display: flex;
-    align-items: center;
-    margin-left: 40px;
-    padding: 40px 40px 0px 0px;
-    color: $frost-color-grey-4;
-    font-size: $frost-font-m;
-  }
+        .header {
+          display: flex;
+          align-items: flex-start;
+          color: $frost-color-grey-2;
+          font-size: $frost-font-l;
+        }
 
-  .icon {
-    margin-right: 40px;
-    width: 80px;
-    height: 80px;
-  }
+        .body {
+          display: flex;
+          align-items: center;
+          padding: 40px 40px 0px 0px;
+          color: $frost-color-grey-4;
+          font-size: $frost-font-m;
+        }
 
-  .footer {
-    padding: 40px 20px 20px 0px;
-    float: right;
-  }
+        .icon {
+          margin-right: 40px;
+          width: 80px;
+          height: 80px;
+        }
 
-  .footer {
-    // override: frost-button
-    .frost-button {
-      margin: 0px;
-      height: 40px;
-      width: 150px;
-      text-align: center;
-      line-height: 30px;
+        .footer {
+          display: flex;
+          justify-content: flex-end;
+          width: 100%;
+          margin-top: 20px;
+          z-index: 999;
+
+          > .frost-button {
+            width: 150px;
+            margin-right: 10px;
+          }
+        }
+      }
     }
   }
+
 }

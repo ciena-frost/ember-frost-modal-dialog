@@ -3,7 +3,7 @@ import Ember from 'ember'
 export default Ember.Route.extend({
 
   actions: {
-    dialogConfirmed: function () {
+    confirm: function () {
       this.notifications.addNotification({
         message: 'Confirmed',
         type: 'success',

@@ -1,8 +1,27 @@
-<div class="overlay">
-  <div class="modal">
+{{#ember-remodal
+  forService=true
+  closeOnOutsideClick=false
+  onOpen=(action 'modalOpen')
+  onClose=(action 'modalClose')
+  closeOnEscape=false
+  disableNativeClose=true as |modal|
+}}
+  {{yield}}
+  {{#modal.open}}
+    {{#yield-slot 'openModalElement'}}
+      {{yield}}
+    {{/yield-slot}}
+  {{/modal.open}}
+
+  {{#yield-slot 'header'}}
+    {{yield}}
+  {{else}}
     <div class="header">
       {{title}}
     </div>
+  {{/yield-slot}}
+
+  {{#yield-slot 'body'}}
     <div class="body">
       {{frost-icon
         icon=dialogIcon
@@ -13,32 +32,32 @@
         <span>{{message}}</span>
       {{/if}}
     </div>
+  {{/yield-slot}}
+
     <div class="footer">
-      {{#if actionsTemplate}}
-        {{partial actionsTemplate}}
-      {{else}}
-        {{#if confirmAlias}}
+      {{#if confirmAlias}}
+        {{#modal.cancel}}
           {{frost-button
             autofocus=true
-            onClick=(action "cancel")
             size="medium"
             priority="tertiary"
             text=cancelAlias
           }}
+        {{#modal.cancel}}
+        {{#modal.confirm}}
           {{frost-button
-            onClick=(action "confirm")
             size="medium"
             priority="primary"
             text=confirmAlias}}
-        {{else}}
+        {{/modal.confirm}}
+      {{else}}
+        {{#modal.cancel}}
           {{frost-button
             autofocus=true
-            onClick=(action "cancel")
             size="medium"
             priority="primary"
             text=cancelAlias}}
-        {{/if}}
+        {{#modal.cancel}}
       {{/if}}
     </div>
-  </div>
-</div>
+{{/ember-remodal}}

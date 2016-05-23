@@ -36,10 +36,10 @@ export default Component.extend({
     onConfirm () {
       this.sendAction('confirm')
     },
-    cancel() {
+    cancel () {
 
     },
-    confirm() {
+    confirm () {
 
     },
     modalOpen () {

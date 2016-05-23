@@ -1,11 +1,15 @@
 @import 'node_modules/ember-frost-core/addon/styles/frost-theme';
+$modal-shadow: rgba($frost-color-grey-1, .5);
+$modal-background: rgba($frost-color-white, 1);
 
 .frost-modal-dialog {
-  &.ember-remodal.window {
-    position: relative;
-    width: 510px;
-    box-shadow: 0px 0px 20px rgba($frost-color-grey-1, 0.5);
-    background-color: rgba($frost-color-white, 1);
+  &.ember-remodal {
+    &.window {
+      position: relative;
+      width: 510px;
+      background-color: $modal-background;
+      box-shadow: 0 0 20px $modal-shadow;
+    }
   }
 
   .ember-remodal {
@@ -24,15 +28,15 @@
         .body {
           display: flex;
           align-items: center;
-          padding: 40px 40px 0px 0px;
+          padding: 40px 40px 0 0;
           color: $frost-color-grey-4;
           font-size: $frost-font-m;
         }
 
         .icon {
-          margin-right: 40px;
           width: 80px;
           height: 80px;
+          margin-right: 40px;
         }
 
         .footer {
@@ -50,5 +54,6 @@
       }
     }
   }
+
 
 }

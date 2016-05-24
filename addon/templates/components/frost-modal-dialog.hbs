@@ -3,12 +3,13 @@
   closeOnOutsideClick=false
   onOpen=(action 'modalOpen')
   onClose=(action 'modalClose')
+  onConfirm=(action 'confirm')
   closeOnEscape=false
   disableNativeClose=true as |modal|
 }}
   {{yield}}
   {{#modal.open}}
-    {{#yield-slot 'openModalElement'}}
+    {{#yield-slot 'target'}}
       {{yield}}
     {{/yield-slot}}
   {{/modal.open}}
@@ -29,35 +30,35 @@
       {{#if messageTemplate}}
         {{partial messageTemplate}}
       {{else}}
-        <span>{{message}}</span>
+        <span>{{yield}}</span>
       {{/if}}
     </div>
   {{/yield-slot}}
 
-    <div class="footer">
-      {{#if confirmAlias}}
-        {{#modal.cancel}}
-          {{frost-button
-            autofocus=true
-            size="medium"
-            priority="tertiary"
-            text=cancelAlias
-          }}
-        {{#modal.cancel}}
-        {{#modal.confirm}}
-          {{frost-button
-            size="medium"
-            priority="primary"
-            text=confirmAlias}}
-        {{/modal.confirm}}
-      {{else}}
-        {{#modal.cancel}}
-          {{frost-button
-            autofocus=true
-            size="medium"
-            priority="primary"
-            text=cancelAlias}}
-        {{#modal.cancel}}
-      {{/if}}
-    </div>
+  <div class="footer">
+    {{#if confirmAlias}}
+      {{#modal.cancel}}
+        {{frost-button
+          autofocus=true
+          size="medium"
+          priority="tertiary"
+          text=cancelAlias
+        }}
+      {{/modal.cancel}}
+      {{#modal.confirm}}
+        {{frost-button
+          size="medium"
+          priority="primary"
+          text=confirmAlias}}
+      {{/modal.confirm}}
+    {{else}}
+      {{#modal.cancel}}
+        {{frost-button
+          autofocus=true
+          size="medium"
+          priority="primary"
+          text=cancelAlias}}
+      {{/modal.cancel}}
+    {{/if}}
+  </div>
 {{/ember-remodal}}

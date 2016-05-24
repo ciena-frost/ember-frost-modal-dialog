@@ -9,8 +9,9 @@
         {{#frost-modal-dialog
           title='confirmation'
           type='confirmation'
-          confirmAlias='Confirm'}}
-          {{#block-slot slot 'openModalElement'}}
+          confirmAlias='Confirm'
+          onConfirmHandler=(action 'confirm')}}
+          {{#block-slot slot 'target'}}
             {{frost-button
               priority="primary"
               size="medium"
@@ -33,10 +34,20 @@
         Information dialog
       </div>
       <div class="demo">
-        {{!-- {{frost-button priority="primary"
-          size="medium"
-          text='Information'
-          onClick=(action "triggerInformationDialog")}} --}}
+        {{#frost-modal-dialog
+          title='Information dialog'
+          type='information'}}
+          {{#block-slot slot 'target'}}
+            {{frost-button
+              priority="primary"
+              size="medium"
+              text='Information dialog'
+            }}
+          {{/block-slot}}
+          {{#block-slot slot 'body'}}
+            Test Information
+          {{/block-slot}}
+        {{/frost-modal-dialog}}
       </div>
       <div class='snippet'>
       </div>
@@ -49,11 +60,20 @@
         Warning dialog
       </div>
       <div class="demo">
-        {{!-- {{frost-button
-          priority="primary"
-          size="medium"
-          text='Warning'
-          onClick=(action "triggerWarningDialog")}} --}}
+        {{#frost-modal-dialog
+          title='Warning dialog'
+          type='warning'}}
+          {{#block-slot slot 'target'}}
+            {{frost-button
+              priority="primary"
+              size="medium"
+              text='Warning dialog'
+            }}
+          {{/block-slot}}
+          {{#block-slot slot 'body'}}
+            Test Warning
+          {{/block-slot}}
+        {{/frost-modal-dialog}}
       </div>
       <div class='snippet'>
       </div>
@@ -66,11 +86,22 @@
         Error dialog
       </div>
       <div class="demo">
-        {{!-- {{frost-button
-          priority="primary"
-          size="medium"
-          text='Error'
-          onClick=(action "triggerErrorDialog")}} --}}
+        {{#frost-modal-dialog
+          title='Error dialog'
+          type='error'
+          confirmAlias='Retry'
+          onConfirmHandler=(action 'retry')}}
+          {{#block-slot slot 'target'}}
+            {{frost-button
+              priority="primary"
+              size="medium"
+              text='Error dialog'
+            }}
+          {{/block-slot}}
+          {{#block-slot slot 'body'}}
+            Test Error
+          {{/block-slot}}
+        {{/frost-modal-dialog}}
       </div>
       <div class='snippet'>
       </div>

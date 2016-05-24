@@ -33,14 +33,8 @@ export default Component.extend({
   },
 
   actions: {
-    onConfirm () {
-      this.sendAction('confirm')
-    },
-    cancel () {
-
-    },
     confirm () {
-
+      this.get('onConfirmHandler')()
     },
     modalOpen () {
       // this.set('$containerEl', Ember.$('.ember-remodal.window.remodal-is-opened .ps-container'))

@@ -16,7 +16,7 @@
     "highlightjs": "^9.3.0"
   },
   "resolutions": {
-    "ember": "~2.3.0"
+    "ember": "~2.5.0"
   },
   "devDependencies": {
     "blanket": "1.1.7"

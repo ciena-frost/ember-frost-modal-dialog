@@ -6,14 +6,43 @@
         Confirmation Dialog
       </div>
       <div class="demo">
-        {{frost-button
-          priority="primary"
-          size="medium"
-          text='Confirmation'
-          onClick=(action "triggerConfirmationDialog")
-        }}
+        {{#frost-modal-dialog
+          title='confirmation'
+          type='confirmation'
+          confirmAlias='Confirm'
+          onConfirmHandler=(action 'confirm')}}
+          {{#block-slot slot 'target'}}
+            {{frost-button
+              priority="primary"
+              size="medium"
+              text='Confirmation dialog'
+            }}
+          {{/block-slot}}
+          {{#block-slot slot 'body'}}
+            Test
+          {{/block-slot}}
+        {{/frost-modal-dialog}}
       </div>
       <div class='snippet'>
+        {{format-markdown "```handlebars
+{{#frost-modal-dialog
+  title='confirmation'
+  type='confirmation'
+  confirmAlias='Confirm'
+  onConfirmHandler=(action 'confirm')}}
+  {{#block-slot slot 'target'}}
+    {{frost-button
+      priority='primary'
+      size='medium'
+      text='Confirmation dialog'
+    }}
+  {{/block-slot}}
+  {{#block-slot slot 'body'}}
+    Test
+  {{/block-slot}}
+{{/frost-modal-dialog}}
+  ```"
+      }}
       </div>
     </div>
   </div>
@@ -24,12 +53,38 @@
         Information dialog
       </div>
       <div class="demo">
-        {{frost-button priority="primary"
-          size="medium"
-          text='Information'
-          onClick=(action "triggerInformationDialog")}}
+        {{#frost-modal-dialog
+          title='Information dialog'
+          type='information'}}
+          {{#block-slot slot 'target'}}
+            {{frost-button
+              priority="primary"
+              size="medium"
+              text='Information dialog'
+            }}
+          {{/block-slot}}
+          {{#block-slot slot 'body'}}
+            Test Information
+          {{/block-slot}}
+        {{/frost-modal-dialog}}
       </div>
       <div class='snippet'>
+        {{format-markdown "```handlebars
+{{#frost-modal-dialog
+  title='Information dialog'
+  type='information'}}
+  {{#block-slot slot 'target'}}
+    {{frost-button
+      priority='primary'
+      size='medium'
+      text='Information dialog'
+    }}
+  {{/block-slot}}
+  {{#block-slot slot 'body'}}
+    Test Information
+  {{/block-slot}}
+{{/frost-modal-dialog}}
+        ```"}}
       </div>
     </div>
   </div>
@@ -40,13 +95,38 @@
         Warning dialog
       </div>
       <div class="demo">
-        {{frost-button
-          priority="primary"
-          size="medium"
-          text='Warning'
-          onClick=(action "triggerWarningDialog")}}
+        {{#frost-modal-dialog
+          title='Warning dialog'
+          type='warning'}}
+          {{#block-slot slot 'target'}}
+            {{frost-button
+              priority="primary"
+              size="medium"
+              text='Warning dialog'
+            }}
+          {{/block-slot}}
+          {{#block-slot slot 'body'}}
+            Test Warning
+          {{/block-slot}}
+        {{/frost-modal-dialog}}
       </div>
       <div class='snippet'>
+        {{format-markdown "```handlebars
+{{#frost-modal-dialog
+  title='Warning dialog'
+  type='warning'}}
+  {{#block-slot slot 'target'}}
+    {{frost-button
+      priority='primary'
+      size='medium'
+      text='Warning dialog'
+    }}
+  {{/block-slot}}
+  {{#block-slot slot 'body'}}
+    Test Warning
+  {{/block-slot}}
+{{/frost-modal-dialog}}
+```"}}
       </div>
     </div>
   </div>
@@ -57,13 +137,42 @@
         Error dialog
       </div>
       <div class="demo">
-        {{frost-button
-          priority="primary"
-          size="medium"
-          text='Error'
-          onClick=(action "triggerErrorDialog")}}
+        {{#frost-modal-dialog
+          title='Error dialog'
+          type='error'
+          confirmAlias='Retry'
+          onConfirmHandler=(action 'retry')}}
+          {{#block-slot slot 'target'}}
+            {{frost-button
+              priority="primary"
+              size="medium"
+              text='Error dialog'
+            }}
+          {{/block-slot}}
+          {{#block-slot slot 'body'}}
+            Test Error
+          {{/block-slot}}
+        {{/frost-modal-dialog}}
       </div>
       <div class='snippet'>
+        {{format-markdown "```handlebars
+{{#frost-modal-dialog
+  title='Error dialog'
+  type='error'
+  confirmAlias='Retry'
+  onConfirmHandler=(action 'retry')}}
+  {{#block-slot slot 'target'}}
+    {{frost-button
+      priority='primary'
+      size='medium'
+      text='Error dialog'
+    }}
+  {{/block-slot}}
+  {{#block-slot slot 'body'}}
+    Test Error
+  {{/block-slot}}
+{{/frost-modal-dialog}}
+```"}}
       </div>
     </div>
   </div>

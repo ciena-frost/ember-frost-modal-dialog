@@ -1,11 +1,13 @@
-/* jshint expr:true */
-import Ember from 'ember'
-import { expect, assert } from 'chai'
+// import Ember from 'ember'
+import { expect } from 'chai'
 import {
   describeComponent,
   it
 } from 'ember-mocha'
 import hbs from 'htmlbars-inline-precompile'
+import { initialize } from 'ember-block-slots/initializers/component-block-slots'
+import $ from 'jquery'
+import {beforeEach} from 'mocha'
 
 describeComponent(
   'frost-modal-dialog',
@@ -14,38 +16,41 @@ describeComponent(
     integration: true
   },
   function () {
-    it('renders frost-modal-dialog of type ("information")', function () {
-      this.render(hbs`{{frost-modal-dialog type='information'
-    title="information" message="information message"}}`)
-      expect(this.$('.frost-modal-dialog .body span').text()).to.equal('information message')
-    })
+    let container, application
 
-    it('renders frost-modal-dialog of type ("warning")', function () {
-      this.render(hbs`{{frost-modal-dialog type='warning' title="warning" message="warning message"}}`)
-      expect(this.$('.frost-modal-dialog .body span').text()).to.equal('warning message')
-    })
-
-    it('renders frost-modal-dialog of type ("error")', function () {
-      this.render(hbs`{{frost-modal-dialog type='error' title="error" message="error message"}}`)
-      expect(this.$('.frost-modal-dialog .body span').text()).to.equal('error message')
-    })
-
-    it('renders frost-modal-dialog of type ("confirmation")', function () {
-      this.render(hbs`{{frost-modal-dialog type='confirmation'
-    title="Confirmation" confirmAlias="Confirm" message="Confirmation message"}}`)
-      expect(this.$('.frost-modal-dialog .body span').text()).to.equal('Confirmation message')
-    })
-
-    it('can click on confirm button and observe confirm action', function () {
-      this.set('clicked', false)
-      this.on('confirm', function () {
-        this.set('clicked', true)
+    beforeEach(function () {
+      Ember.testing = true
+      Ember.run(() => {
+        application = Ember.Application.create()
+        container = application.__container__
+        application.deferReadiness()
       })
+      initialize(container, application)
+    })
 
-      this.render(hbs`{{frost-modal-dialog type='confirmation'
-        title="Confirmation" confirmAlias="Confirm" message="Confirmation message" confirm=(action 'confirm')}}`)
-      Ember.run(() => this.$('.frost-button').get(1).click())
-      assert.isTrue(this.get('clicked'), 'confirmed')
+    it('opens frost-modal-dialog of type ("confirmation")', function () {
+      this.on('confirm', function () {
+      })
+      this.render(hbs`{{#frost-modal-dialog
+        title='confirmation'
+        type='confirmation'
+        confirmAlias='Confirm'
+        onConfirmHandler=(action 'confirm')}}
+        {{#block-slot slot 'target'}}
+          {{frost-button
+            priority="primary"
+            size="medium"
+            text='Confirmation dialog'
+          }}
+        {{/block-slot}}
+        {{#block-slot slot 'body'}}Test{{/block-slot}}
+      {{/frost-modal-dialog}}`)
+
+      this.$('.frost-button')[0].click()
+      let length = $('[data-test-id="modalWindow"].remodal-is-opened').length ||
+                  $('[data-test-id="modalWindow"].remodal-is-opening').length
+      expect(length).to.equal(1)
+      expect($('[data-test-id="yielded"] .header').text()).to.have.string('confirmation')
     })
   }
 )

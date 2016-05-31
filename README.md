@@ -10,6 +10,7 @@
 [![Travis][ci-img]][ci-url] [![Coveralls][cov-img]][cov-url] [![NPM][npm-img]][npm-url]
 
 # ember-frost-modal-dialog
+A simple modal dialog for messages requiring some user feedback
 
  * [Installation](#installation)
  * [API](#api)
@@ -25,46 +26,45 @@ ember install ember-frost-modal-dialog
 
 | Attribute | Type | Value | Description |
 | --------- | ---- | ----- | ----------- |
-| `dialogType` | `string` | `confirmation` | will display a confirmation dialog |
+| `type` | `string` | `confirmation` | will display a confirmation dialog |
 | | | `information` | will display an information dialog |
 | | | `warning` | will display a warning dialog |
 | | | `error` | will display an error dialog |
-| `dialogTitle` | `string` | `<title>` | title for your dialog |
-| `dialogMessage` | `string` | `<message>` | string message content for your dialog |
-| `dialogConfirmAlias` | `string` | `<alias>` | string alias for the primary action button in a modal |
-| `messageTemplate` | `hbs` | `<custom template>` | optional template partial for the modal body |
-| `actionsTemplate` | `hbs` | `<custom template>` | optional template partial for the modal footer actions |
+| `title` | `string` | `<title>` | title for your dialog |
+| `confirmAlias` | `string` | `<alias>` | Optional string alias for the primary action button in a modal |
+| `onConfirmHandler` | `Function` | `<action-name>` | If confirmAlias is present, callback for when the confirm button is clicked |
 
 ## Examples
 
 ### Controller
 ```javascript
 actions: {
-  triggerConfirmationDialog () {
-    this.set('dialogType', 'confirmation')
-    this.set('dialogTitle', 'Confirmation')
-    this.set('dialogMessage', 'Confirmation message')
-    this.set('dialogConfirmAlias', 'Confirm')
-    this.set('isDialogVisible', true)
+  confirm: function () {
   }
 }
 ```
 
-### Router
-```
-this.modal("frost-modal-dialog", {
-    withParams: "isDialogVisible",
-    dialogClass: "frost-modal-dialog",
-    otherParams: [
-      {dialogType: "type"},
-      {dialogTitle: "title"},
-      {dialogMessage: "message"},
-      {dialogConfirmAlias: "confirmAlias"}
-    ],
-    actions: {
-      confirm: "dialogConfirmed"
-    }
-  })
+### Template
+Block-slot `target` yields the component to launch the modal
+Block-slot `body` yields the dialog content
+
+```handlebars
+{{#frost-modal-dialog
+  title='confirmation'
+  type='confirmation'
+  confirmAlias='Confirm'
+  onConfirmHandler=(action 'confirm')}}
+  {{#block-slot slot 'target'}}
+    {{frost-button
+      priority="primary"
+      size="medium"
+      text='Confirmation dialog'
+    }}
+  {{/block-slot}}
+  {{#block-slot slot 'body'}}
+    Test
+  {{/block-slot}}
+{{/frost-modal-dialog}}
 ```
 
 ## Development

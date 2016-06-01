@@ -3,6 +3,31 @@ import Ember from 'ember'
 const {Controller} = Ember
 
 export default Controller.extend({
+  messageContent: [
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ',
+    ' Vestibulum ante ipsum primis in faucibus.',
+    ' Vestibulum ante ipsum primis in faucibus.',
+    ' Vestibulum ante ipsum primis in faucibus.',
+    ' Vestibulum ante ipsum primis in faucibus.',
+    ' Vestibulum ante ipsum primis in faucibus.',
+    ' Vestibulum ante ipsum primis in faucibus.',
+    ' Vestibulum ante ipsum primis in faucibus.',
+    ' Vestibulum ante ipsum primis in faucibus.',
+    ' Vestibulum ante ipsum primis in faucibus.',
+    ' Vestibulum ante ipsum primis in faucibus.',
+    ' Vestibulum ante ipsum primis in faucibus.',
+    ' Vestibulum ante ipsum primis in faucibus.',
+    ' Vestibulum ante ipsum primis in faucibus.',
+    ' Vestibulum ante ipsum primis in faucibus.',
+    ' Vestibulum ante ipsum primis in faucibus.',
+    ' Vestibulum ante ipsum primis in faucibus.',
+    ' Vestibulum ante ipsum primis in faucibus.',
+    ' Vestibulum ante ipsum primis in faucibus.',
+    ' Vestibulum ante ipsum primis in faucibus.',
+    ' Vestibulum ante ipsum primis in faucibus.',
+    'Phasellus eu risus a sapien posuere cursus'
+  ],
+
   actions: {
     confirm: function () {
       this.notifications.addNotification({

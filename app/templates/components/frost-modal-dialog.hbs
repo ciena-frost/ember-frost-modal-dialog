@@ -18,22 +18,27 @@
     {{yield}}
   {{else}}
     <div class="header">
-      {{title}}
-    </div>
-  {{/yield-slot}}
-
-  {{#yield-slot 'body'}}
-    <div class="body">
       {{frost-icon
         icon=dialogIcon
         class='icon'}}
-      {{#if messageTemplate}}
-        {{partial messageTemplate}}
-      {{else}}
-        <span>{{yield}}</span>
-      {{/if}}
+      <div class='title'>{{title}}</div>
     </div>
   {{/yield-slot}}
+
+  {{#perfect-scroll
+    wheelSpeed=2
+    minScrollbarLength=20
+    maxScrollbarLength=150}}
+    {{#yield-slot 'body'}}
+      <div class="body">
+        {{#if messageTemplate}}
+          {{partial messageTemplate}}
+        {{else}}
+          <span>{{yield}}</span>
+        {{/if}}
+      </div>
+    {{/yield-slot}}
+  {{/perfect-scroll}}
 
   <div class="footer">
     {{#if confirmAlias}}

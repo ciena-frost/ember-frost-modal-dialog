@@ -1,4 +1,3 @@
-{{liquid-modal}}
 <div class="dummy-body">
   <div class="section">
     <div class="example">
@@ -19,7 +18,7 @@
             }}
           {{/block-slot}}
           {{#block-slot slot 'body'}}
-            Test
+            Are you sure you want to confirm this action?
           {{/block-slot}}
         {{/frost-modal-dialog}}
       </div>
@@ -38,7 +37,7 @@
     }}
   {{/block-slot}}
   {{#block-slot slot 'body'}}
-    Test
+    Are you sure you want to confirm this action?
   {{/block-slot}}
 {{/frost-modal-dialog}}
   ```"
@@ -64,7 +63,10 @@
             }}
           {{/block-slot}}
           {{#block-slot slot 'body'}}
-            Test Information
+            Test Information block
+            {{#each messageContent as |item|}}
+              <div>{{item}}</div>
+            {{/each}}
           {{/block-slot}}
         {{/frost-modal-dialog}}
       </div>
@@ -81,7 +83,10 @@
     }}
   {{/block-slot}}
   {{#block-slot slot 'body'}}
-    Test Information
+    Test Information block
+    {{#each messageContent as |item|}}
+      <div>{{item}}</div>
+    {{/each}}
   {{/block-slot}}
 {{/frost-modal-dialog}}
         ```"}}

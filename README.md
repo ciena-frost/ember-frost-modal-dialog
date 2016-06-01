@@ -30,7 +30,7 @@ ember install ember-frost-modal-dialog
 | | | `information` | will display an information dialog |
 | | | `warning` | will display a warning dialog |
 | | | `error` | will display an error dialog |
-| `title` | `string` | `<title>` | title for your dialog |
+| `title` | `string` | `<title>` | Optional title for your dialog |
 | `confirmAlias` | `string` | `<alias>` | Optional string alias for the primary action button in a modal |
 | `onConfirmHandler` | `Function` | `<action-name>` | If confirmAlias is present, callback for when the confirm button is clicked |
 
@@ -45,7 +45,8 @@ actions: {
 ```
 
 ### Template
-Block-slot `target` yields the component to launch the modal
+Block-slot `target` yields the component used to launch the modal, e.g. a button
+Optional Block-slot `header` yields a custom title template if `title` attr was not provided
 Block-slot `body` yields the dialog content
 
 ```handlebars

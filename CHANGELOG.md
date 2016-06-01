@@ -1,3 +1,9 @@
+# 2.1.0
+## Non breaking changes
+- added perfect scroll in the root addon for dialog content.
+- updated header+footer styles for scrolling
+- using ember-prop-types 
+
 # 2.0.0
 ## Changed
 - BREAKING Using [ember-remodal](http://sethbrasile.github.io/ember-remodal/) addon to simplify modal dialog support. Additional modal-dialog template options required

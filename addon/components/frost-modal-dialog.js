@@ -11,9 +11,9 @@ export default Component.extend(PropTypeMixin, {
 
   propTypes: {
     confirmAlias: PropTypes.string,
-    onConfirmHandler: PropTypes.func
+    onConfirmHandler: PropTypes.func,
     title: PropTypes.string,
-    type: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired
   },
 
   getDefaultProps () {

@@ -1,11 +1,11 @@
 /* global Ps */
 import Ember from 'ember'
 import computed from 'ember-computed-decorators'
-import PropTypeMixin, {PropTypes} from 'ember-prop-types'
+import {PropTypes} from 'ember-prop-types'
 
 const {Component, assert} = Ember
 
-export default Component.extend(PropTypeMixin, {
+export default Component.extend( {
   tagName: 'frost-modal-dialog',
   classNames: ['frost-modal-dialog'],
 

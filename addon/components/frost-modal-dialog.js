@@ -10,10 +10,10 @@ export default Component.extend(PropTypeMixin, {
   classNames: ['frost-modal-dialog'],
 
   propTypes: {
-    title: PropTypes.string,
-    type: PropTypes.string.isRequired,
     confirmAlias: PropTypes.string,
     onConfirmHandler: PropTypes.func
+    title: PropTypes.string,
+    type: PropTypes.string.isRequired,
   },
 
   getDefaultProps () {

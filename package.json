@@ -24,6 +24,7 @@
     "broccoli-asset-rev": "^2.4.2",
     "ember-ajax": "0.7.1",
     "ember-block-slots": "~0.12.2",
+    "ember-browserify": "1.1.9",
     "ember-cli": "^2.5.0",
     "ember-cli-app-version": "^1.0.0",
     "ember-cli-blanket": "0.9.1",
@@ -43,12 +44,14 @@
     "ember-export-application-global": "^1.0.5",
     "ember-frost-core": ">=0.8.0 <2.0.0",
     "ember-load-initializers": "^0.5.1",
-    "ember-lodash": "~0.0.6",
+    "ember-lodash": "0.0.7",
     "ember-modal-dialog": "0.8.3",
+    "ember-one-way-controls": "0.8.0",
     "ember-perfectscroll": "0.1.2",
     "ember-prop-types": "2.0.0",
     "ember-remodal": "1.2.0",
     "ember-resolver": "^2.0.3",
+    "ember-sinon": "0.5.1",
     "ember-truth-helpers": "^1.2.0",
     "ember-try": "^0.2.2",
     "eslint": "^2.9.0",
@@ -57,7 +60,8 @@
     "frost-guide-custom-routing": "^0.0.3",
     "loader.js": "^4.0.1",
     "markdown-code-highlighting": "0.0.6",
-    "sass-lint": "1.7.0"
+    "sass-lint": "^1.7.0",
+    "svg4everybody": "^2.0.3"
   },
   "keywords": [
     "ember-addon",

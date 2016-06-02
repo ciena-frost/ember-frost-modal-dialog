@@ -1,6 +1,6 @@
 import Ember from 'ember'
 
-const {Controller} = Ember
+const {Controller, Logger} = Ember
 
 export default Controller.extend({
   messageContent: [
@@ -29,6 +29,10 @@ export default Controller.extend({
   ],
 
   actions: {
+    close () {
+      Logger.log('modal closed')
+    },
+
     confirm: function () {
       this.notifications.addNotification({
         message: 'Confirmed',
@@ -37,6 +41,11 @@ export default Controller.extend({
         clearDuration: 2000
       })
     },
+
+    open () {
+      Logger.log('modal opened')
+    },
+
     retry: function () {
       this.notifications.addNotification({
         message: 'Retried',

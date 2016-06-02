@@ -1,3 +1,7 @@
+# 2.1.1
+
+* **Changed** dialog footer buttons from a fixed width of `150px` to have a minimum width of `150px`.
+
 # 2.1.0
 ## Non breaking changes
 - added perfect scroll in the root addon for dialog content.

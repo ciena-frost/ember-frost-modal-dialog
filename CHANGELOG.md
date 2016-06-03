@@ -1,3 +1,7 @@
+# 2.2.1
+No CHANGELOG section found in Pull Request description.
+Use a `# CHANGELOG` section in your Pull Request description to auto-populate the `CHANGELOG.md`
+
 # 2.2.0
 
 * **Added** `onClose` property so consumer can know when modal is closed.

@@ -10,8 +10,10 @@
           type='confirmation'
           confirmAlias='Confirm'
           modalName='my-confirm-dialog'
+          onClose=(action 'close')
           onConfirmHandler=(action 'confirm')
-          onOpenHandler=(action 'openTest')}}
+          onOpen=(action 'open')
+        }}
           {{#block-slot slot 'target'}}
             {{frost-button
               priority="primary"
@@ -30,7 +32,10 @@
   title='confirmation'
   type='confirmation'
   confirmAlias='Confirm'
-  onConfirmHandler=(action 'confirm')}}
+  onClose=(action 'close')
+  onConfirmHandler=(action 'confirm')
+  onOpen=(action 'open')
+}}
   {{#block-slot slot 'target'}}
     {{frost-button
       priority='primary'
@@ -148,7 +153,10 @@
           title='Error dialog'
           type='error'
           confirmAlias='Retry'
-          onConfirmHandler=(action 'retry')}}
+          onClose=(action 'close')
+          onConfirmHandler=(action 'retry')
+          onOpen=(action 'open')
+        }}
           {{#block-slot slot 'target'}}
             {{frost-button
               priority="primary"
@@ -167,7 +175,10 @@
   title='Error dialog'
   type='error'
   confirmAlias='Retry'
-  onConfirmHandler=(action 'retry')}}
+  onClose=(action 'close')
+  onConfirmHandler=(action 'retry')
+  onOpen=(action 'open')
+}}
   {{#block-slot slot 'target'}}
     {{frost-button
       priority='primary'

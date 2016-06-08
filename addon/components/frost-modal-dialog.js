@@ -10,7 +10,9 @@ export default Component.extend(PropTypeMixin, {
 
   propTypes: {
     confirmAlias: PropTypes.string,
+    onClose: PropTypes.func,
     onConfirmHandler: PropTypes.func,
+    onOpen: PropTypes.func,
     title: PropTypes.string,
     type: PropTypes.string.isRequired
   },
@@ -66,13 +68,15 @@ export default Component.extend(PropTypeMixin, {
       }
     },
     modalOpen () {
-      const onOpen = this.get('onOpenHandler')
+      const onOpen = this.get('onOpen')
+
       if (onOpen) {
         onOpen()
       }
     },
     modalClose () {
-      const onClose = this.get('onCloseHandler')
+      const onClose = this.get('onClose')
+
       if (onClose) {
         onClose()
       }

@@ -32,10 +32,10 @@ ember install ember-frost-modal-dialog
 | | | `warning` | will display a warning dialog |
 | | | `error` | will display an error dialog |
 | `title` | `string` | `<title>` | Optional title for your dialog |
-| `confirmAlias` | `string` | `<alias>` | Optional string alias that would render the primary action button in a modal |
+| `confirmAlias` | `string` | `<alias>` | Optional string alias for the primary action button in a modal |
+| `onClose` | `Function` | `<action-name>` | Optional callback for when modal is closed |
 | `onConfirmHandler` | `Function` | `<action-name>` | If confirmAlias is present, callback for when the confirm button is clicked |
-| `onOpenHandler` | `Function` | `<action-name>` | Callback triggered after the modal opens |
-| `onCloseHandler` | `Function` | `<action-name>` | Callback triggered after the modal closes |
+| `onOpen` | `Function` | `<action-name>` | Optional callback for when modal is opened |
 
 ## Examples
 

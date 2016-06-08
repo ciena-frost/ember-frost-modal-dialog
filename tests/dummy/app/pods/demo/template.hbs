@@ -9,7 +9,9 @@
           title='confirmation'
           type='confirmation'
           confirmAlias='Confirm'
-          onConfirmHandler=(action 'confirm')}}
+          modalName='my-confirm-dialog'
+          onConfirmHandler=(action 'confirm')
+          onOpenHandler=(action 'openTest')}}
           {{#block-slot slot 'target'}}
             {{frost-button
               priority="primary"

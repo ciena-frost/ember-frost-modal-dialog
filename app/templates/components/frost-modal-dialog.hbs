@@ -1,35 +1,24 @@
-{{#ember-remodal
-  forService=true
-  closeOnOutsideClick=false
-  modalClasses='frost-modal-dialog'
+{{#frost-modal
+  modalClass='frost-modal-dialog'
+  modalName=modalName
   onOpen=(action 'modalOpen')
   onClose=(action 'modalClose')
-  onConfirm=(action 'confirm')
-  closeOnEscape=false
-  disableNativeClose=true as |modal|
+  confirm=(action 'confirm') as |slot|
 }}
-  {{yield}}
-  {{#modal.open}}
+  {{#block-slot slot 'target'}}
     {{#yield-slot 'target'}}
       {{yield}}
     {{/yield-slot}}
-  {{/modal.open}}
+  {{/block-slot}}
 
-  {{#yield-slot 'header'}}
-    {{yield}}
-  {{else}}
-    <div class="header">
-      {{frost-icon
-        icon=dialogIcon
-        class='icon'}}
-      <div class='title'>{{title}}</div>
-    </div>
-  {{/yield-slot}}
+  {{#block-slot slot 'header'}}
+    {{frost-icon
+      icon=dialogIcon
+      class='icon'}}
+    <div class='title'>{{title}}</div>
+  {{/block-slot}}
 
-  {{#perfect-scroll
-    wheelSpeed=2
-    minScrollbarLength=20
-    maxScrollbarLength=150}}
+  {{#block-slot slot 'body'}}
     {{#yield-slot 'body'}}
       <div class="body">
         {{#if messageTemplate}}
@@ -39,32 +28,30 @@
         {{/if}}
       </div>
     {{/yield-slot}}
-  {{/perfect-scroll}}
+  {{/block-slot}}
 
-  <div class="footer">
     {{#if confirmAlias}}
-      {{#modal.cancel}}
+      {{#block-slot slot 'cancel'}}
         {{frost-button
           autofocus=true
           size='medium'
           priority='tertiary'
           text=cancelAlias
         }}
-      {{/modal.cancel}}
-      {{#modal.confirm}}
+      {{/block-slot}}
+      {{#block-slot slot 'confirm'}}
         {{frost-button
           size='medium'
           priority='primary'
           text=confirmAlias}}
-      {{/modal.confirm}}
+      {{/block-slot}}
     {{else}}
-      {{#modal.cancel}}
+      {{#block-slot slot 'cancel'}}
         {{frost-button
           autofocus=true
           size='medium'
           priority='primary'
           text=cancelAlias}}
-      {{/modal.cancel}}
+      {{/block-slot}}
     {{/if}}
-  </div>
-{{/ember-remodal}}
+{{/frost-modal}}

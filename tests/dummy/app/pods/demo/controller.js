@@ -44,6 +44,9 @@ export default Controller.extend({
         autoClear: true,
         clearDuration: 2000
       })
+    },
+    openTest: function () {
+      console.log('I am Open')
     }
   }
 })

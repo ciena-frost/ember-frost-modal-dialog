@@ -10,7 +10,7 @@
 [![Travis][ci-img]][ci-url] [![Coveralls][cov-img]][cov-url] [![NPM][npm-img]][npm-url]
 
 # ember-frost-modal-dialog
-A simple modal dialog for messages requiring some user feedback
+A modal dialog for messages requiring some user feedback. This is a wrapper around [ember-frost-modal](https://github.com/ciena-frost/ember-frost-modal) that provides the base styles and block structure
 
  * [Installation](#installation)
  * [API](#api)
@@ -26,6 +26,7 @@ ember install ember-frost-modal-dialog
 
 | Attribute | Type | Value | Description |
 | --------- | ---- | ----- | ----------- |
+| `modalName` | `string` | `<name>` | Optional name for the modal, accessible via ember-remodal service |
 | `type` | `string` | `confirmation` | will display a confirmation dialog |
 | | | `information` | will display an information dialog |
 | | | `warning` | will display a warning dialog |
@@ -38,25 +39,18 @@ ember install ember-frost-modal-dialog
 
 ## Examples
 
-### Controller
-```javascript
-actions: {
-  confirm: function () {
-  }
-}
-```
-
 ### Template
 Block-slot `target` yields the component used to launch the modal, e.g. a button
 Optional Block-slot `header` yields a custom title template if `title` attr was not provided
 Block-slot `body` yields the dialog content
+A Cancel button is always rendered to allow the modal to be closed.
 
 ```handlebars
 {{#frost-modal-dialog
   title='confirmation'
   type='confirmation'
   confirmAlias='Confirm'
-  onConfirmHandler=(action 'confirm')}}
+  onConfirmHandler=(action 'confirmHandler')}}
   {{#block-slot slot 'target'}}
     {{frost-button
       priority="primary"
@@ -68,6 +62,14 @@ Block-slot `body` yields the dialog content
     Test
   {{/block-slot}}
 {{/frost-modal-dialog}}
+```
+### Controller
+```javascript
+actions: {
+  confirmHandler: function () {
+
+  }
+}
 ```
 
 ## Development

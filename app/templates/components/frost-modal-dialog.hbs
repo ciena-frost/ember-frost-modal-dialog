@@ -30,28 +30,14 @@
     {{/yield-slot}}
   {{/block-slot}}
 
+  {{#block-slot slot 'footer' as |controls|}}
     {{#if confirmAlias}}
-      {{#block-slot slot 'cancel'}}
-        {{frost-button
-          autofocus=true
-          size='medium'
-          priority='tertiary'
-          text=cancelAlias
-        }}
-      {{/block-slot}}
-      {{#block-slot slot 'confirm'}}
-        {{frost-button
-          size='medium'
-          priority='primary'
-          text=confirmAlias}}
-      {{/block-slot}}
+      {{controls.cancel}}
+      {{controls.confirm
+      onConfirm=onConfirmHandler
+      text=confirmAlias}}
     {{else}}
-      {{#block-slot slot 'cancel'}}
-        {{frost-button
-          autofocus=true
-          size='medium'
-          priority='primary'
-          text=cancelAlias}}
-      {{/block-slot}}
+      {{controls.cancel}}
     {{/if}}
+  {{/block-slot}}
 {{/frost-modal}}

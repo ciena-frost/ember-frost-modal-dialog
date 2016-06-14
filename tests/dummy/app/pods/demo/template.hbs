@@ -32,6 +32,7 @@
   title='confirmation'
   type='confirmation'
   confirmAlias='Confirm'
+  modalName='my-confirm-dialog'
   onClose=(action 'close')
   onConfirmHandler=(action 'confirm')
   onOpen=(action 'open')
@@ -61,6 +62,7 @@
       <div class="demo">
         {{#frost-modal-dialog
           title='Information dialog'
+          modalName='my-information-dialog'
           type='information'}}
           {{#block-slot slot 'target'}}
             {{frost-button
@@ -81,6 +83,7 @@
         {{format-markdown "```handlebars
 {{#frost-modal-dialog
   title='Information dialog'
+  modalName='my-information-dialog'
   type='information'}}
   {{#block-slot slot 'target'}}
     {{frost-button
@@ -109,6 +112,7 @@
       <div class="demo">
         {{#frost-modal-dialog
           title='Warning dialog'
+          modalName='my-warning-dialog'
           type='warning'}}
           {{#block-slot slot 'target'}}
             {{frost-button
@@ -153,6 +157,7 @@
           title='Error dialog'
           type='error'
           confirmAlias='Retry'
+          modalName='my-error-dialog'
           onClose=(action 'close')
           onConfirmHandler=(action 'retry')
           onOpen=(action 'open')

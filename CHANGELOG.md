@@ -1,3 +1,8 @@
+# 2.4.0
+## Non Breaking
+- frost-modal-dialog is now a wrapper around  [ember-frost-modal](https://github.com/ciena-frost/ember-frost-modal)
+- Added support for a modalName, onOpen and onClose actions
+
 # 2.3.0
 ## Non Breaking
 - frost-modal-dialog is now a wrapper around  [ember-frost-modal](https://github.com/ciena-frost/ember-frost-modal)

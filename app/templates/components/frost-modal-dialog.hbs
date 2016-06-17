@@ -32,22 +32,12 @@
 
   {{#block-slot slot 'footer' as |controls|}}
     {{#if confirmAlias}}
-      {{controls.cancel
-          autofocus=true
-          size='medium'
-          priority='tertiary'
-          text=cancelAlias
-        }}
+      {{controls.cancel}}
       {{controls.confirm
-          size='medium'
-          priority='primary'
-          text=confirmAlias}}
+      onConfirm=onConfirmHandler
+      text=confirmAlias}}
     {{else}}
-      {{controls.cancel
-          autofocus=true
-          size='medium'
-          priority='primary'
-          text=cancelAlias}}
+      {{controls.cancel}}
     {{/if}}
-    {{/block-slot}}
+  {{/block-slot}}
 {{/frost-modal}}

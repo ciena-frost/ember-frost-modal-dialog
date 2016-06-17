@@ -26,7 +26,7 @@ ember install ember-frost-modal-dialog
 
 | Attribute | Type | Value | Description |
 | --------- | ---- | ----- | ----------- |
-| `modalName` | `string` | `<name>` | Optional name for the modal, accessible via ember-remodal service |
+| `modalName` | `string` | `<name>` | Mandatory unique name for the modal, accessible via ember-remodal service |
 | `type` | `string` | `confirmation` | will display a confirmation dialog |
 | | | `information` | will display an information dialog |
 | | | `warning` | will display a warning dialog |
@@ -47,6 +47,7 @@ A Cancel button is always rendered to allow the modal to be closed.
 
 ```handlebars
 {{#frost-modal-dialog
+  modalName='my-dialog'
   title='confirmation'
   type='confirmation'
   confirmAlias='Confirm'

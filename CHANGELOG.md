@@ -1,3 +1,7 @@
+# 2.5.4
+
+* Updated to latest version of `liquid-fire`.
+
 # 2.5.3
 No CHANGELOG section found in Pull Request description.
 Use a `# CHANGELOG` section in your Pull Request description to auto-populate the `CHANGELOG.md`

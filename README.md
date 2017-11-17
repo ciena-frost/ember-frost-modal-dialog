@@ -1,3 +1,5 @@
+# This repo is [DEPRECATED].  Use [https://github.com/ciena-frost/ember-frost-modal](https://github.com/ciena-frost/ember-frost-modal) instead.
+
 [ci-img]: https://img.shields.io/travis/ciena-frost/ember-frost-modal-dialog.svg "Travis CI Build Status"
 [ci-url]: https://travis-ci.org/ciena-frost/ember-frost-modal-dialog
 
